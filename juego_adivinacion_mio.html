@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA PARA ADIVINAR UN NÚMERO</h1>
+
+<script>
+    
+
+    function saltarLinea() { 
+        document.write('<br>');
+        document.write('<br>');
+    };
+
+    function imprimir(text) {
+        document.write(text)
+        saltarLinea();
+    };    
+
+    function topNumber(n) {
+        var number = Math.round(Math.random() * n);
+        return number
+    };
+
+    var intentos = 3;
+    var contador = 1;
+    var n = parseInt(prompt('Ingresa un número maximo para nuestro sorteo'));
+    var numeroPensado = topNumber(n);
+
+    while (contador <= intentos) {
+
+        var numeroLanzado = parseInt(prompt('Ingresa un número entre 0-' + n));
+
+        if (numeroLanzado == numeroPensado) {
+            break
+        }    
+        if (numeroLanzado < numeroPensado) {
+            alert('Tu número es menor al número objetivo, sigue intentando');            
+            contador++ 
+        } else {
+            alert('Tu número es mayor al número objetivo, sigue intentando');
+            contador++
+        }
+    }
+
+    if (numeroLanzado == numeroPensado) {
+        imprimir('Adivinaste el número, has ganado!!');
+    } else {        
+        imprimir('Lo siento has perdido!! El número ha adivinar era ' + numeroPensado);
+    }
+    
+</script>
